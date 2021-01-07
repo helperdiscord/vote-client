@@ -1,2 +1,1 @@
-import { Client } from './structs/Client';
-exports.Client = Client;
+export { Client } from './structs/Client'
