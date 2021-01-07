@@ -1,0 +1,25 @@
+{
+  "name": "@helperdiscord/vote",
+  "version": "1.0.2",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helperdiscord/vote-client.git"
+  },
+  "author": "doge (doge@helper.wtf)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/helperdiscord/vote-client/issues"
+  },
+  "homepage": "https://github.com/helperdiscord/vote-client#readme",
+  "dependencies": {
+    "@helperdiscord/centra": "^1.0.7"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
