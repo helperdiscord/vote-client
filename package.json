@@ -1,11 +1,11 @@
 {
   "name": "@helperdiscord/vote",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-		"build": "tsc -p .",
-		"prepack": "npm build"
+    "build": "tsc -p .",
+    "prepack": "npm build"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^14.14.20",
+    "tsup": "^3.11.0",
     "typescript": "^4.1.3"
   },
   "engines": {
