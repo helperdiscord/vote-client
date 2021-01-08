@@ -24,4 +24,13 @@ export class Client {
             return false;
         };
     }
+
+    async count(): Promise<BigInt> {
+        const res = await req(`${this.url}/total/${this.bot}`, 'POST').header('Authorization', this.auth).send();
+        if (res.statusCode === 200) {
+            return BigInt(res.json?.count);
+        } else {
+            return BigInt(0);
+        };
+    }
 }
