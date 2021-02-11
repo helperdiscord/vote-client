@@ -50,7 +50,7 @@ export class Client {
     }
     /**
      *
-     *
+     * @description checks if somebody has voted for your bot in the past 12 hours
      * @param {string} userId
      * @return {boolean}  {Promise<boolean>}
      * @memberof Client
@@ -65,7 +65,7 @@ export class Client {
     }
     /**
      *
-     *
+     * @description shows the total number of voters
      * @return {bigint}  {Promise<BigInt>}
      * @memberof Client
      */
