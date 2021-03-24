@@ -1,5 +1,4 @@
 import req from 'petitio';
-import { Client as UClient } from 'undici';
 
 /**
  *
@@ -40,7 +39,6 @@ export class Client {
      * @memberof Client
      */
     public bot: string;
-    private client: UClient;
     /**
      * Creates an instance of Client.
      * @param {ClientOptions} { url, auth, bot }
@@ -50,7 +48,6 @@ export class Client {
         this.url = new URL(url)?.origin;
         this.auth = auth;
         this.bot = bot;
-        this.client = new UClient(this.url, { pipelining: 10 })
     }
     /**
      *
@@ -60,7 +57,7 @@ export class Client {
      * @memberof Client
      */
     async check(userId: string): Promise<boolean> {
-        const res = await req(`${this.url}/check`, 'POST').client(this.client, true).header('Authorization', this.auth).body({ user: userId, bot: this.bot }).send();
+        const res = await req(`${this.url}/check`, 'POST').header('Authorization', this.auth).body({ user: userId, bot: this.bot }).send();
         if (res.statusCode === 200) {
             return res.json().voter;
         } else {
@@ -74,7 +71,7 @@ export class Client {
      * @memberof Client
      */
     async count(): Promise<BigInt> {
-        const res = await req(`${this.url}/total/${this.bot}`, 'POST').client(this.client, true).header('Authorization', this.auth).send();
+        const res = await req(`${this.url}/total/${this.bot}`, 'POST').header('Authorization', this.auth).send();
         if (res.statusCode === 200) {
             return BigInt(res.json().count);
         } else {
