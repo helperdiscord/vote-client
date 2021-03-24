@@ -1,15 +1,23 @@
 {
   "name": "@helperdiscord/vote",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist/*",
-    "build": "npm run clean && tsup src/index.ts --format esm,cjs,iife --dts --minify",
+    "build": "npm run clean && tsup src/index.ts --format esm,cjs --dts --minify",
     "prepare": "npm run build",
     "doc": "typedoc src/*",
     "release": "npm run build && npm run doc"
   },
+  "files": [
+		"dist",
+		"!dist/*.tsbuildinfo"
+	],
+	"exports": {
+		"require": "./dist/index.js",
+		"import": "./dist/index.mjs"
+	},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/helperdiscord/vote-client.git"
@@ -20,9 +28,6 @@
     "url": "https://github.com/helperdiscord/vote-client/issues"
   },
   "homepage": "https://github.com/helperdiscord/vote-client#readme",
-  "dependencies": {
-    "@helperdiscord/centra": "^1.0.7"
-  },
   "devDependencies": {
     "@types/node": "^14.14.20",
     "rimraf": "^3.0.2",
@@ -31,5 +36,9 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "petitio": "^1.1.0",
+    "undici": "^3.3.3"
   }
 }
